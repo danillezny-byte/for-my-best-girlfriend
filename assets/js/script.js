@@ -376,8 +376,11 @@ signatureBox.addEventListener('click', () => {
 });
 
 // ========== RESTART ==========
+const buttonsContainer = document.querySelector('.buttons');
+
 document.getElementById('restartBtn').addEventListener('click', () => {
-    // Reset everything
+    // Move No button back into buttons container
+    buttonsContainer.appendChild(noBtn);
     noBtn.style.display = '';
     noBtn.style.position = '';
     noBtn.style.left = '';
@@ -385,10 +388,12 @@ document.getElementById('restartBtn').addEventListener('click', () => {
     noBtn.style.zIndex = '';
     noBtn.style.transition = '';
     noBtn.style.transform = '';
+    noBtn.style.fontSize = '';
     noBtn.textContent = 'No.......';
     yesBtn.style.transform = '';
     noCounter.textContent = '';
     noBtnEscaped = false;
+    noBtnAnimating = false;
     noAttempts = 0;
 
     // Reset signature
