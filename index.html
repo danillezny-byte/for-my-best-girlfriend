@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <!-- Screen 1: Main question -->
+    <div class="screen active" id="mainScreen">
+        <div class="days-counter"></div>
+        <h1 class="title" id="title"></h1>
+        <div class="paw-prints">
+            <span>🐾</span><span>🐾</span><span>🐾</span>
+        </div>
+        <div class="buttons">
+            <button class="btn btn-yes" id="yesBtn">YES!!!!!</button>
+            <button class="btn btn-no" id="noBtn">No.......</button>
+        </div>
+        <div class="no-counter" id="noCounter"></div>
+    </div>
+
+    <!-- Screen 2: MEOW reaction -->
+    <div class="screen" id="yesScreen">
+        <div class="yes-title">MEOW!!!</div>
+        <div class="yes-subtitle">I knew you'd say yes!</div>
+        <div class="yes-hearts" id="yesHearts"></div>
+        <div class="days-counter"></div>
+    </div>
+
+    <!-- Screen 3: Certificate -->
+    <div class="screen" id="certificateScreen">
+        <div class="certificate-card">
+            <div class="certificate-ornament-top"></div>
+            <div class="certificate-header">Meow-rriage Certificate</div>
+            <div class="certificate-paws">🐾 🐾 🐾</div>
+            <div class="certificate-body">
+                This document officially certifies that<br>
+                <span class="certificate-name">Елизавета</span><br>
+                has agreed to be <strong>meow-rried</strong><br>
+                and promises to give unlimited headpats,<br>
+                treats, and cuddles fur-ever.
+            </div>
+            <div class="certificate-date" id="certificateDate"></div>
+            <div class="certificate-sign-label">Sign here, please! 🐾</div>
+            <div class="signature-box" id="signatureBox">
+                <div class="signature-line"></div>
+                <div class="signature-placeholder">Tap to sign...</div>
+                <img class="signature-img hidden" id="signatureText" src="assets/images/signature.png" alt="Signature">
+                <div class="cat-paw" id="catPaw">🐾</div>
+            </div>
+            <div class="certificate-ornament-bottom"></div>
+        </div>
+    </div>
+
+    <!-- Screen 4: Celebration -->
+    <div class="screen" id="celebrationScreen">
+        <div class="celebration-title" id="celebrationTitle"></div>
+        <div class="celebration-subtitle">Together fur-ever!</div>
+        <div class="celebration-emojis">🐱 💙 🐾 💍 🐱</div>
+        <div class="days-counter"></div>
+        <button class="btn btn-restart" id="restartBtn">Start over? 🐾</button>
+    </div>
+
+    <canvas id="confetti"></canvas>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,465 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&family=Caveat:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="font-size:24px"><text y="24">🐾</text></svg>'), auto;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    background: #4fc3f7;
+}
+
+body {
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #4fc3f7);
+    overflow: hidden;
+    font-family: 'Comfortaa', 'Segoe UI', sans-serif;
+    color: #333;
+}
+
+/* ========== Screen transitions ========== */
+.screen {
+    text-align: center;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+}
+
+.screen.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* ========== Days counter ========== */
+.days-counter {
+    font-size: 1.1rem;
+    color: #0277bd;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+/* ========== Main screen ========== */
+.title {
+    font-size: 3.5rem;
+    color: #0277bd;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(2, 119, 189, 0.2);
+    min-height: 4.5rem;
+    font-weight: 700;
+}
+
+.title .cursor {
+    display: inline-block;
+    width: 3px;
+    height: 3.5rem;
+    background: #0277bd;
+    margin-left: 4px;
+    animation: blink 0.6s ease-in-out infinite;
+    vertical-align: middle;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.paw-prints {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.paw-prints span {
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+.paw-prints span:nth-child(2) { animation-delay: 0.3s; }
+.paw-prints span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.btn {
+    padding: 16px 40px;
+    font-size: 1.3rem;
+    font-family: 'Comfortaa', sans-serif;
+    border: none;
+    border-radius: 50px;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="font-size:24px"><text y="24">🐾</text></svg>'), pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-weight: 700;
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #039be5, #0277bd);
+    color: white;
+    box-shadow: 0 4px 15px rgba(3, 155, 229, 0.4);
+}
+
+.btn-yes:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(3, 155, 229, 0.6);
+}
+
+.btn-no {
+    background: #ffffff;
+    color: #555;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: box-shadow 0.3s, font-size 0.3s;
+    max-width: 160px;
+    white-space: nowrap;
+}
+
+.no-counter {
+    margin-top: 25px;
+    font-size: 1rem;
+    color: #0277bd;
+    min-height: 1.5rem;
+    opacity: 0.9;
+    transition: opacity 0.3s;
+}
+
+/* ========== YES screen ========== */
+.yes-title {
+    font-size: 5rem;
+    color: #0277bd;
+    animation: pulse 1s ease-in-out infinite;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(2, 119, 189, 0.3);
+    font-weight: 700;
+}
+
+.yes-subtitle {
+    font-size: 2.5rem;
+    color: #0288d1;
+    margin-bottom: 20px;
+}
+
+.yes-hearts {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ========== Certificate screen ========== */
+.certificate-card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px 45px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    border: 3px solid #b2ebf2;
+    overflow: hidden;
+}
+
+/* Ornament borders */
+.certificate-ornament-top,
+.certificate-ornament-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 8px,
+        #e0f7fa 8px,
+        #e0f7fa 10px
+    );
+    opacity: 0.6;
+}
+
+.certificate-ornament-top {
+    top: 0;
+    border-bottom: 2px solid #b2ebf2;
+    background: linear-gradient(180deg, #e0f7fa 0%, transparent 100%);
+}
+
+.certificate-ornament-top::after {
+    content: '~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #b2ebf2;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.certificate-ornament-bottom {
+    bottom: 0;
+    border-top: 2px solid #b2ebf2;
+    background: linear-gradient(0deg, #e0f7fa 0%, transparent 100%);
+}
+
+.certificate-ornament-bottom::after {
+    content: '~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~';
+    position: absolute;
+    top: 2px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #b2ebf2;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.certificate-header {
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0277bd;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.certificate-paws {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.certificate-body {
+    font-size: 1.05rem;
+    line-height: 2;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.certificate-name {
+    font-family: 'Caveat', cursive;
+    font-size: 1.8rem;
+    color: #0277bd;
+    font-weight: 700;
+}
+
+.certificate-date {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+
+.certificate-sign-label {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.signature-box {
+    border: 2px dashed #b2ebf2;
+    border-radius: 12px;
+    padding: 15px 20px;
+    min-height: 70px;
+    position: relative;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="font-size:24px"><text y="24">🐾</text></svg>'), pointer;
+    transition: border-color 0.3s, background 0.3s;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signature-box:hover {
+    border-color: #039be5;
+    background: #f0fbff;
+}
+
+.signature-line {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    right: 30px;
+    height: 1px;
+    background: #ccc;
+}
+
+.signature-placeholder {
+    color: #aaa;
+    font-size: 1rem;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+}
+
+.signature-img {
+    height: 100px;
+    max-width: 300px;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+}
+
+.signature-text {
+    font-family: 'Caveat', cursive;
+    font-size: 2.5rem;
+    color: #0277bd;
+    font-weight: 700;
+}
+
+.cat-paw {
+    position: absolute;
+    font-size: 4rem;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    z-index: 2;
+}
+
+.cat-paw.animate {
+    animation: pawStamp 1.5s ease-in-out forwards;
+}
+
+@keyframes pawStamp {
+    0% {
+        right: -80px;
+        opacity: 0;
+        transform: translateY(-50%) rotate(0deg);
+    }
+    30% {
+        right: 50%;
+        opacity: 1;
+        transform: translateY(-50%) rotate(-10deg);
+    }
+    50% {
+        right: 50%;
+        transform: translateY(-50%) rotate(5deg) scale(1.2);
+    }
+    60% {
+        transform: translateY(-50%) rotate(-3deg) scale(1);
+    }
+    80% {
+        right: 50%;
+        opacity: 1;
+    }
+    100% {
+        right: -80px;
+        opacity: 0;
+        transform: translateY(-50%) rotate(0deg);
+    }
+}
+
+.signature-box.signed {
+    border-color: #039be5;
+    border-style: solid;
+    background: #f0fbff;
+}
+
+/* ========== Celebration screen ========== */
+.celebration-title {
+    font-size: 2.8rem;
+    color: #0277bd;
+    font-weight: 700;
+    margin-bottom: 15px;
+    animation: pulse 1s ease-in-out infinite;
+    text-shadow: 2px 2px 8px rgba(2, 119, 189, 0.3);
+    min-height: 4rem;
+}
+
+.celebration-subtitle {
+    font-size: 2rem;
+    color: #0288d1;
+    margin-bottom: 20px;
+}
+
+.celebration-emojis {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: bounce 1.5s ease-in-out infinite;
+}
+
+.btn-restart {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #0277bd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+    padding: 12px 30px;
+    opacity: 0;
+    animation: fadeIn 1s ease 3s forwards;
+}
+
+.btn-restart:hover {
+    transform: scale(1.05);
+    background: white;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ========== Confetti canvas ========== */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* ========== Floating cat photos ========== */
+.cat-photo {
+    position: fixed;
+    object-fit: cover;
+    border-radius: 10px;
+    opacity: 0;
+    animation: floatCat linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes floatCat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.5;
+    }
+    90% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(15deg);
+        opacity: 0;
+    }
+}
